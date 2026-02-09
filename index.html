@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D' Lirios Travel | Luxury Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fucsia: #ff00ff;
+            --fucsia-glow: rgba(255, 0, 255, 0.8);
+            --bg: #0d0d0d;
+            --card-bg: #151515;
+        }
+
+        body {
+            margin: 0; background: var(--bg); color: white;
+            font-family: 'Poppins', sans-serif; display: flex; flex-direction: column; align-items: center;
+        }
+
+        /* --- LOGO --- */
+        .header { text-align: center; padding: 40px 10px 10px 10px; }
+        .logo-wrap {
+            width: 180px; height: 180px; margin: 0 auto 20px;
+            position: relative; display: flex; justify-content: center; align-items: center;
+        }
+        .simple-circle {
+            position: absolute; width: 100%; height: 100%;
+            border: 5px solid var(--fucsia); border-radius: 50%;
+            box-shadow: 0 0 30px var(--fucsia-glow); z-index: 1;
+        }
+        .car-img { width: 92%; height: 92%; border-radius: 50%; object-fit: cover; z-index: 2; }
+
+        /* --- TÍTULO --- */
+        .header h1 {
+            font-size: clamp(2.2rem, 9vw, 4rem); text-transform: uppercase; font-weight: 900;
+            color: var(--fucsia); text-shadow: 3px 3px 0px #000; margin: 0;
+        }
+
+        /* --- SECCIÓN COMODIDADES (MÁS SEPARADA) --- */
+        .comodidades-container {
+            margin-top: 60px; /* Espacio extra desde el título */
+            margin-bottom: 50px;
+            background: rgba(255, 0, 255, 0.08);
+            padding: 20px 40px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 0, 255, 0.2);
+        }
+        .comodidades {
+            display: flex; justify-content: center; gap: 25px; font-size: 0.8rem; color: #fff;
+        }
+        .comodidades span { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        .comodidades i { color: var(--fucsia); font-size: 1.2rem; }
+
+        /* --- GRID 3 COLUMNAS --- */
+        .grid { 
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 15px; padding: 10px; width: 100%; max-width: 1200px;
+        }
+        .card { 
+            background: var(--card-bg); border-radius: 20px; padding: 15px; text-align: center;
+            box-shadow: 0 0 20px var(--fucsia-glow); border: 1px solid rgba(255, 0, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: scale(1.02); }
+        .card img { width: 100%; height: 90px; object-fit: cover; border-radius: 12px; }
+        .card h3 { font-size: 0.8rem; margin: 15px 0; letter-spacing: 1px; font-weight: 700; }
+
+        /* --- FORMULARIO COMPLETO --- */
+        .form-box { display: none; flex-direction: column; gap: 8px; margin-top: 10px; }
+        .form-box input, .form-box select { 
+            width: 100%; padding: 10px; background: #000; border: 1px solid #555; 
+            color: white; border-radius: 8px; font-size: 0.75rem; box-sizing: border-box;
+        }
+        .btn-consultar {
+            width: 100%; padding: 12px; background: transparent; border: 3px solid var(--fucsia);
+            color: white; border-radius: 30px; font-weight: 900; font-size: 0.7rem; cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-consultar:hover { background: var(--fucsia); box-shadow: 0 0 15px var(--fucsia); }
+        .btn-enviar { background: #2ecc71; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 5px; }
+        .btn-cerrar { background: #e74c3c; color: white; border: none; padding: 8px; border-radius: 8px; font-size: 0.7rem; cursor: pointer; }
+
+        /* --- FAQ --- */
+        .faq { width: 100%; max-width: 850px; padding: 80px 20px; }
+        .faq h2 { color: var(--fucsia); text-align: center; font-size: 1.8rem; margin-bottom: 40px; text-transform: uppercase; }
+        .faq-item { background: #1a1a1a; padding: 25px; border-radius: 15px; margin-bottom: 20px; border-left: 6px solid var(--fucsia); }
+        .faq-item h4 { margin: 0 0 10px 0; font-size: 1.1rem; color: var(--fucsia); }
+        .faq-item p { margin: 0; font-size: 0.9rem; color: #ddd; line-height: 1.6; }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+            background: #25d366; color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 100;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+
+        footer { padding: 40px; color: #444; font-size: 0.8rem; text-align: center; font-weight: bold; }
+
+        @media (min-width: 768px) {
+            .card img { height: 200px; }
+            .card h3 { font-size: 1.3rem; }
+            .grid { gap: 30px; }
+            .comodidades { font-size: 1.2rem; gap: 50px; }
+            .logo-wrap { width: 220px; height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/5492254531229" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <div class="header">
+        <div class="logo-wrap">
+            <div class="simple-circle"></div>
+            <img src="https://i.imgur.com/NxqXKCj.jpeg" class="car-img" alt="Peugeot 208 Marrón">
+        </div>
+        <h1>D' LIRIOS TRAVEL</h1>
+    </div>
+
+    <div class="comodidades-container">
+        <div class="comodidades">
+            <span><i class="butacas confortables"></i> Wi-Fi</span>
+            <span><i class="fas fa-snowflake"></i> Aire</span>
+            <span><i class="fas fa-plug"></i> USB</span>
+            <span><i class="fas fa-paw"></i> Pet Friendly</span>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1561816646-b5b12a9b92ed?w=500">
+            <h3>MAR DEL PLATA</h3>
+            <button class="btn-consultar" onclick="abrirForm(this)">CONSULTAR VIAJE</button>
+            <div class="form-box">
+                <input type="text" placeholder="Nombre y Apellido" class="f-nom">
+                <input type="number" placeholder="¿Cuántos pasajeros?" class="f-pas">
+                <input type="text" placeholder="Equipaje (valijas/bolsos)" class="f-equi">
+                <select class="f-mas">
+                    <option value="No">¿Llevas mascota?</option>
+                    <option value="Sí, con mascota">Sí, llevo mascota</option>
+                    <option value="No">No llevo mascota</option>
+                </select>
+                <button class="btn-enviar" onclick="enviarWA('Mar del Plata', this)">PEDIR COTIZACIÓN</button>
+                <button class="btn-cerrar" onclick="cerrarForm(this)">Cerrar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=500">
+            <h3>BUENOS AIRES</h3>
+            <button class="btn-consultar" onclick="abrirForm(this)">CONSULTAR VIAJE</button>
+            <div class="form-box">
+                <input type="text" placeholder="Nombre y Apellido" class="f-nom">
+                <input type="number" placeholder="¿Cuántos pasajeros?" class="f-pas">
+                <input type="text" placeholder="Equipaje" class="f-equi">
+                <select class="f-mas">
+                    <option value="No">¿Llevas mascota?</option>
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                </select>
+                <button class="btn-enviar" onclick="enviarWA('Buenos Aires', this)">PEDIR COTIZACIÓN</button>
+                <button class="btn-cerrar" onclick="cerrarForm(this)">Cerrar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500">
+            <h3>LA COSTA</h3>
+            <button class="btn-consultar" onclick="abrirForm(this)">CONSULTAR VIAJE</button>
+            <div class="form-box">
+                <input type="text" placeholder="Nombre y Apellido" class="f-nom">
+                <input type="number" placeholder="¿Cuántos pasajeros?" class="f-pas">
+                <input type="text" placeholder="Equipaje" class="f-equi">
+                <select class="f-mas">
+                    <option value="No">¿Llevas mascota?</option>
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                </select>
+                <button class="btn-enviar" onclick="enviarWA('La Costa', this)">PEDIR COTIZACIÓN</button>
+                <button class="btn-cerrar" onclick="cerrarForm(this)">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h4>¿Cómo confirmo mi viaje?</h4>
+            <p>Al enviar el formulario, recibiremos todos tus datos por WhatsApp. Te responderemos al instante para confirmar el precio final y reservar el horario.</p>
+        </div>
+        <div class="faq-item">
+            <h4>¿Tienen espacio para mucho equipaje?</h4>
+            <p>El Peugeot 208 cuenta con un baúl versátil. Si viajan 2 personas, podemos acomodar varias valijas. Si viajan 4, el espacio es para equipaje estándar.</p>
+        </div>
+        <div class="faq-item">
+            <h4>¿Aceptan pagos con tarjeta?</h4>
+            <p>Sí, aceptamos todas las tarjetas a través de Mercado Pago (con un pequeño recargo) y también transferencias bancarias o efectivo.</p>
+        </div>
+    </div>
+
+    <footer>
+        D' LIRIOS TRAVEL - PEUGEOT 208 EXECUTIVE SERVICE © 2026
+    </footer>
+
+    <script>
+        function abrirForm(btn) {
+            btn.style.display = 'none';
+            btn.parentElement.querySelector('.form-box').style.display = 'flex';
+        }
+        function cerrarForm(btn) {
+            const card = btn.closest('.card');
+            card.querySelector('.form-box').style.display = 'none';
+            card.querySelector('.btn-consultar').style.display = 'block';
+        }
+        function enviarWA(dest, btn) {
+            const c = btn.closest('.card');
+            const nom = c.querySelector('.f-nom').value;
+            const pas = c.querySelector('.f-pas').value;
+            const equi = c.querySelector('.f-equi').value;
+            const mas = c.querySelector('.f-mas').value;
+            
+            if(!nom || !pas) { alert("Por favor, ingresa al menos tu nombre y cantidad de pasajeros."); return; }
+            
+            const msg = `*CONSULTA D' LIRIOS TRAVEL*%0A📍 *Destino:* ${dest}%0A👤 *Pasajero:* ${nom}%0A👥 *Cantidad:* ${pas}%0A🧳 *Equipaje:* ${equi}%0A🐾 *Mascota:* ${mas}`;
+            window.open(`https://wa.me/5492254531229?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
