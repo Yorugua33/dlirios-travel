@@ -225,7 +225,7 @@
             if(!nom || !fecRaw || !pas) { alert("Completa los datos necesarios"); return; }
             const f = fecRaw.split('-');
             const fecOk = `${f[2]}/${f[1]}/${f[0]}`;
-            const msg = `*NUEVA CONSULTA D' LIRIOS*%0A*Destino:* ${dest}%0A*Fecha:* ${fecOk}%0A*Pasajero:* ${nom}%0A*Cantidad:* ${pas}%0A*Equipaje:* ${equi}%0A*Mascota:* ${masc}%0A%0A*Costo del viaje:* $_________(Completar)`;
+            const msg = `*NUEVA CONSULTA D' LIRIOS TRAVEL*%0A*Destino:* ${dest}%0A*Fecha:* ${fecOk}%0A*Pasajero:* ${nom}%0A*Cantidad:* ${pas}%0A*Equipaje:* ${equi}%0A*Mascota:* ${masc}%0A%0A*Costo del viaje:* AR$...........`;
             window.open(`https://wa.me/5492254531229?text=${msg}`, '_blank');
         }
     </script>
