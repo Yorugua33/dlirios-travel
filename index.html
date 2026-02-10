@@ -10,8 +10,10 @@
         :root {
             --fucsia: #ff00ff;
             --fucsia-glow: rgba(255, 0, 255, 0.8);
+            --dorado: #e2b04a;
             --bg: #0d0d0d;
             --card-bg: #151515;
+            --whatsapp-green: #25d366;
         }
 
         body {
@@ -19,10 +21,10 @@
             font-family: 'Poppins', sans-serif; display: flex; flex-direction: column; align-items: center;
         }
 
-        /* --- LOGO --- */
+        /* --- HEADER --- */
         .header { text-align: center; padding: 40px 10px 10px 10px; }
         .logo-wrap {
-            width: 180px; height: 180px; margin: 0 auto 15px;
+            width: 160px; height: 160px; margin: 0 auto 15px;
             position: relative; display: flex; justify-content: center; align-items: center;
         }
         .simple-circle {
@@ -31,101 +33,92 @@
             box-shadow: 0 0 30px var(--fucsia-glow); z-index: 1;
         }
         .car-img { width: 92%; height: 92%; border-radius: 50%; object-fit: cover; z-index: 2; }
-
-        .header h1 {
-            font-size: clamp(2.2rem, 9vw, 3.5rem); text-transform: uppercase; font-weight: 900;
-            color: var(--fucsia); text-shadow: 2px 2px 0px #000; margin: 0;
+        .header h1 { font-size: 2.5rem; text-transform: uppercase; font-weight: 900; color: var(--fucsia); margin: 0; }
+        
+        .frase-premium {
+            color: var(--dorado); font-size: 1.1rem; font-style: italic; margin-top: 10px;
+            font-weight: 400; letter-spacing: 1px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
 
-        /* --- FRASE DEBAJO DEL TÍTULO --- */
-        .slogan {
-            font-style: italic;
-            color: #ccc;
-            font-size: 1rem;
-            margin-top: 5px;
-            letter-spacing: 1px;
-            font-weight: 300;
+        /* --- COMODIDADES --- */
+        .comodidades { display: flex; gap: 15px; margin: 25px 0; justify-content: center; flex-wrap: wrap; }
+        .item-com { display: flex; flex-direction: column; align-items: center; font-size: 0.6rem; color: #ccc; }
+        .item-com i { 
+            color: var(--fucsia); font-size: 1.2rem; margin-bottom: 5px; 
+            border: 1px solid var(--fucsia); width: 40px; height: 40px; 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 50%; box-shadow: 0 0 10px var(--fucsia-glow);
         }
 
-        /* --- COMODIDADES (ICONO ARRIBA, TEXTO ABAJO) --- */
-        .comodidades-container { margin: 30px 0; width: 95%; max-width: 800px; }
-        .comodidades-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .comodidad-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .comodidad-item i {
-            color: var(--fucsia); font-size: 1.4rem; background: rgba(255, 0, 255, 0.1);
-            width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; border: 1px solid var(--fucsia-glow);
-            box-shadow: 0 0 15px var(--fucsia-glow); margin-bottom: 10px;
-        }
-        .comodidad-item span { font-size: 0.6rem; text-transform: uppercase; font-weight: bold; color: #ddd; }
-
-        /* --- TARJETAS CON EFECTO ESFUMADO Y HOVER --- */
+        /* --- GRID --- */
         .grid { 
             display: grid; grid-template-columns: repeat(3, 1fr);
             gap: 20px; padding: 20px; width: 100%; max-width: 1100px;
         }
         .card { 
             background: var(--card-bg); border-radius: 25px; padding: 15px; text-align: center;
-            border: 1px solid var(--fucsia-glow);
-            box-shadow: 0 0 25px var(--fucsia-glow);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid var(--fucsia-glow); box-shadow: 0 0 20px var(--fucsia-glow);
         }
-        .card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 0 45px var(--fucsia);
-        }
-        .card img { width: 100%; height: 85px; object-fit: cover; border-radius: 15px; }
-        .card h3 { font-size: 0.8rem; margin: 15px 0; font-weight: 900; letter-spacing: 1px; }
+        .card img { width: 100%; height: 120px; object-fit: cover; border-radius: 15px; }
+        .card h3 { font-size: 1.1rem; margin: 15px 0; color: var(--fucsia); font-weight: 900; }
 
-        /* --- FORMULARIO CON TODOS LOS CAMPOS --- */
+        /* --- FORMULARIOS --- */
+        .btn-consultar-principal {
+            width: 100%; padding: 12px; background: transparent; border: 2px solid var(--fucsia);
+            color: white; border-radius: 25px; font-weight: bold; cursor: pointer; text-transform: uppercase;
+        }
         .form-box { display: none; flex-direction: column; gap: 8px; margin-top: 15px; text-align: left; }
-        .form-box label { font-size: 0.65rem; color: var(--fucsia); font-weight: bold; margin-bottom: -5px; margin-left: 5px; }
-        .form-box input, .form-box select { 
+        .form-box label { font-size: 0.65rem; color: var(--fucsia); font-weight: bold; margin-left: 5px; }
+        .form-box input { 
             width: 100%; padding: 10px; background: #000; border: 1px solid #444; 
             color: white; border-radius: 8px; font-size: 0.8rem; box-sizing: border-box;
         }
-        .btn-consultar {
-            width: 100%; padding: 12px; background: transparent; border: 2px solid var(--fucsia);
-            color: white; border-radius: 25px; font-weight: bold; font-size: 0.75rem; cursor: pointer;
-            text-transform: uppercase;
+        .btn-whatsapp-final { 
+            background: var(--whatsapp-green); color: white; border: none; padding: 12px; 
+            border-radius: 25px; font-weight: bold; cursor: pointer; margin-top: 5px;
+            display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem;
         }
-        .btn-enviar { background: #2ecc71; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 5px; }
-        .btn-cerrar { background: transparent; color: #777; border: none; padding: 10px; font-size: 0.7rem; cursor: pointer; text-decoration: underline; width: 100%; }
+        .btn-cerrar { background: transparent; color: #777; border: none; padding: 5px; font-size: 0.7rem; cursor: pointer; text-decoration: underline; text-align: center; width: 100%; }
 
-        .whatsapp-float {
-            position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
-            background: #25d366; color: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 100;
-        }
-        footer { padding: 40px; color: #555; font-size: 0.7rem; text-align: center; }
+        /* --- FAQ --- */
+        .faq-section { width: 90%; max-width: 800px; margin: 40px 0; }
+        .faq-section h2 { text-align: center; color: var(--fucsia); font-size: 1.5rem; margin-bottom: 20px; }
+        .faq-item { background: var(--card-bg); margin-bottom: 10px; border-radius: 10px; border: 1px solid #333; overflow: hidden; }
+        .faq-question { padding: 15px; cursor: pointer; display: flex; justify-content: space-between; font-weight: bold; font-size: 0.9rem; }
+        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease; color: #ccc; font-size: 0.85rem; }
+        .faq-item.active .faq-answer { padding: 15px; max-height: 200px; border-top: 1px solid #333; }
 
-        @media (min-width: 768px) {
-            .card img { height: 180px; }
-            .card h3 { font-size: 1.3rem; }
-            .comodidad-item i { width: 75px; height: 75px; font-size: 2rem; }
-            .slogan { font-size: 1.4rem; }
+        /* --- FLOAT BOTON --- */
+        .wa-float {
+            position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px;
+            background-color: var(--whatsapp-green); color: #FFF; border-radius: 50%;
+            text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 100; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s;
         }
+
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/5492254531229" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/5492254531229?text=Hola!%20Tengo%20una%20consulta" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <div class="header">
         <div class="logo-wrap">
             <div class="simple-circle"></div>
-            <img src="https://i.imgur.com/NxqXKCj.jpeg" class="car-img" alt="Peugeot 208 Sonia">
+            <img src="https://i.imgur.com/NxqXKCj.jpeg" class="car-img">
         </div>
         <h1>D' LIRIOS TRAVEL</h1>
-        <div class="slogan">El placer de viajar con exclusividad</div>
-    </div>
-
-    <div class="comodidades-container">
-        <div class="comodidades-grid">
-            <div class="comodidad-item"><i class="fas fa-couch"></i><span>Butacas<br>Confort</span></div>
-            <div class="comodidad-item"><i class="fas fa-snowflake"></i><span>Aire<br>Bi-Zona</span></div>
-            <div class="comodidad-item"><i class="fas fa-plug"></i><span>Carga<br>USB</span></div>
-            <div class="comodidad-item"><i class="fas fa-paw"></i><span>Pet<br>Friendly</span></div>
+        <div class="frase-premium">"No es solo un viaje, es el destino que te mereces"</div>
+        
+        <div class="comodidades">
+            <div class="item-com"><i class="fas fa-snowflake"></i><span>CLIMA</span></div>
+            <div class="item-com"><i class="fas fa-couch"></i><span>CONFORT</span></div>
+            <div class="item-com"><i class="fas fa-plug"></i><span>USB</span></div>
+            <div class="item-com"><i class="fas fa-paw"></i><span>PETS</span></div>
         </div>
     </div>
 
@@ -133,19 +126,17 @@
         <div class="card">
             <img src="https://images.unsplash.com/photo-1561816646-b5b12a9b92ed?w=500">
             <h3>MAR DEL PLATA</h3>
-            <button class="btn-consultar" onclick="abrirForm(this)">CONSULTAR</button>
+            <button class="btn-consultar-principal" onclick="abrirForm(this)">Consultar</button>
             <div class="form-box">
-                <input type="text" placeholder="Nombre completo" class="f-nom">
-                <label>¿Qué día viajas?</label>
+                <input type="text" placeholder="Tu nombre" class="f-nom">
+                <label>Fecha de viaje:</label>
                 <input type="date" class="f-fec">
-                <input type="number" placeholder="Cantidad pasajeros" class="f-pas">
-                <input type="text" placeholder="Equipaje (ej: 2 valijas)" class="f-equi">
-                <select class="f-mas">
-                    <option value="No">¿Llevás mascota?</option>
-                    <option value="Sí">Sí, viajo con mascota</option>
-                    <option value="No">No</option>
-                </select>
-                <button class="btn-enviar" onclick="enviarWA('Mar del Plata', this)">PEDIR COTIZACIÓN</button>
+                <input type="number" placeholder="Pasajeros" class="f-pas">
+                <input type="text" placeholder="Equipaje (valijas)" class="f-equi">
+                <input type="text" placeholder="Mascota (raza/tamaño)" class="f-masc">
+                <button class="btn-whatsapp-final" onclick="enviarConsulta('Mar del Plata', this)">
+                    <i class="fab fa-whatsapp"></i> PEDIR COTIZACIÓN
+                </button>
                 <button class="btn-cerrar" onclick="cerrarForm(this)">Volver</button>
             </div>
         </div>
@@ -153,19 +144,17 @@
         <div class="card">
             <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=500">
             <h3>BUENOS AIRES</h3>
-            <button class="btn-consultar" onclick="abrirForm(this)">CONSULTAR</button>
+            <button class="btn-consultar-principal" onclick="abrirForm(this)">Consultar</button>
             <div class="form-box">
-                <input type="text" placeholder="Nombre completo" class="f-nom">
-                <label>¿Qué día viajas?</label>
+                <input type="text" placeholder="Tu nombre" class="f-nom">
+                <label>Fecha de viaje:</label>
                 <input type="date" class="f-fec">
                 <input type="number" placeholder="Pasajeros" class="f-pas">
-                <input type="text" placeholder="Equipaje" class="f-equi">
-                <select class="f-mas">
-                    <option value="No">¿Llevás mascota?</option>
-                    <option value="Sí">Sí</option>
-                    <option value="No">No</option>
-                </select>
-                <button class="btn-enviar" onclick="enviarWA('Buenos Aires', this)">PEDIR COTIZACIÓN</button>
+                <input type="text" placeholder="Equipaje (valijas)" class="f-equi">
+                <input type="text" placeholder="Mascota (raza/tamaño)" class="f-masc">
+                <button class="btn-whatsapp-final" onclick="enviarConsulta('Buenos Aires', this)">
+                    <i class="fab fa-whatsapp"></i> PEDIR COTIZACIÓN
+                </button>
                 <button class="btn-cerrar" onclick="cerrarForm(this)">Volver</button>
             </div>
         </div>
@@ -173,29 +162,50 @@
         <div class="card">
             <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500">
             <h3>LA COSTA</h3>
-            <button class="btn-consultar" onclick="abrirForm(this)">CONSULTAR</button>
+            <button class="btn-consultar-principal" onclick="abrirForm(this)">Consultar</button>
             <div class="form-box">
-                <input type="text" placeholder="Nombre completo" class="f-nom">
-                <label>¿Qué día viajas?</label>
+                <input type="text" placeholder="Tu nombre" class="f-nom">
+                <label>Fecha de viaje:</label>
                 <input type="date" class="f-fec">
                 <input type="number" placeholder="Pasajeros" class="f-pas">
-                <input type="text" placeholder="Equipaje" class="f-equi">
-                <select class="f-mas">
-                    <option value="No">¿Llevás mascota?</option>
-                    <option value="Sí">Sí</option>
-                    <option value="No">No</option>
-                </select>
-                <button class="btn-enviar" onclick="enviarWA('La Costa', this)">PEDIR COTIZACIÓN</button>
+                <input type="text" placeholder="Equipaje (valijas)" class="f-equi">
+                <input type="text" placeholder="Mascota (raza/tamaño)" class="f-masc">
+                <button class="btn-whatsapp-final" onclick="enviarConsulta('La Costa', this)">
+                    <i class="fab fa-whatsapp"></i> PEDIR COTIZACIÓN
+                </button>
                 <button class="btn-cerrar" onclick="cerrarForm(this)">Volver</button>
             </div>
         </div>
     </div>
 
-    <footer>
-        D' LIRIOS TRAVEL - PEUGEOT 208 EXECUTIVE © 2026<br>Diseño Marcelo Muraña
+    <div class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-question">¿Son viajes compartidos o privados? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Todos nuestros servicios son exclusivamente privados y de puerta a puerta para su mayor confort.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-question">¿Aceptas Mercado Pago? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Sí, aceptamos Mercado Pago y también transferencia bancaria o efectivo.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+            <div class="faq-question">¿Aceptan mascotas? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Sí, somos Pet Friendly. Por favor, indíquenos la raza y tamaño al momento de la consulta.</div>
+        </div>
+    </div>
+
+    <footer style="padding: 40px; color: #555; font-size: 0.7rem; text-align: center;">
+        D' LIRIOS TRAVEL © 2026 | Diseño Marcelo Muraña
     </footer>
 
     <script>
+        window.onload = function() {
+            const hoy = new Date().toISOString().split('T')[0];
+            document.querySelectorAll('.f-fec').forEach(input => {
+                input.setAttribute('min', hoy);
+                input.value = hoy;
+            });
+        }
         function abrirForm(btn) {
             btn.style.display = 'none';
             btn.parentElement.querySelector('.form-box').style.display = 'flex';
@@ -203,19 +213,19 @@
         function cerrarForm(btn) {
             const card = btn.closest('.card');
             card.querySelector('.form-box').style.display = 'none';
-            card.querySelector('.btn-consultar').style.display = 'block';
+            card.querySelector('.btn-consultar-principal').style.display = 'block';
         }
-        function enviarWA(dest, btn) {
+        function enviarConsulta(dest, btn) {
             const c = btn.closest('.card');
             const nom = c.querySelector('.f-nom').value;
-            const fec = c.querySelector('.f-fec').value;
+            const fecRaw = c.querySelector('.f-fec').value;
             const pas = c.querySelector('.f-pas').value;
-            const equi = c.querySelector('.f-equi').value;
-            const mas = c.querySelector('.f-mas').value;
-            
-            if(!nom || !pas || !fec) { alert("Por favor, completa nombre, fecha y pasajeros."); return; }
-            
-            const msg = `*CONSULTA D' LIRIOS TRAVEL*%0A📍 *Destino:* ${dest}%0A🗓️ *Fecha:* ${fec}%0A👤 *Pasajero:* ${nom}%0A👥 *Cantidad:* ${pas}%0A🧳 *Equipaje:* ${equi}%0A🐾 *Mascota:* ${mas}`;
+            const equi = c.querySelector('.f-equi').value || "Estándar";
+            const masc = c.querySelector('.f-masc').value || "No";
+            if(!nom || !fecRaw || !pas) { alert("Completa los datos necesarios"); return; }
+            const f = fecRaw.split('-');
+            const fecOk = `${f[2]}/${f[1]}/${f[0]}`;
+            const msg = `*NUEVA CONSULTA D' LIRIOS*%0A*Destino:* ${dest}%0A*Fecha:* ${fecOk}%0A*Pasajero:* ${nom}%0A*Cantidad:* ${pas}%0A*Equipaje:* ${equi}%0A*Mascota:* ${masc}%0A%0A*Costo del viaje:* $_________(Completar)`;
             window.open(`https://wa.me/5492254531229?text=${msg}`, '_blank');
         }
     </script>
