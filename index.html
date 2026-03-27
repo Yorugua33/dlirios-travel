@@ -50,16 +50,19 @@
             border-radius: 50%; box-shadow: 0 0 10px var(--fucsia-glow);
         }
 
-        /* --- GRID --- */
+        /* --- GRID (Actualizado para 4 elementos) --- */
         .grid { 
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 20px; padding: 20px; width: 100%; max-width: 1100px;
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; padding: 20px; width: 100%; max-width: 1200px;
         }
         .card { 
             background: var(--card-bg); border-radius: 25px; padding: 15px; text-align: center;
             border: 1px solid var(--fucsia-glow); box-shadow: 0 0 20px var(--fucsia-glow);
+            transition: transform 0.3s;
         }
-        .card img { width: 100%; height: 120px; object-fit: cover; border-radius: 15px; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 15px; }
         .card h3 { font-size: 1.1rem; margin: 15px 0; color: var(--fucsia); font-weight: 900; }
 
         /* --- FORMULARIOS --- */
@@ -96,8 +99,6 @@
             z-index: 100; display: flex; align-items: center; justify-content: center;
             text-decoration: none; transition: 0.3s;
         }
-
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -135,6 +136,24 @@
                 <input type="text" placeholder="Equipaje (valijas)" class="f-equi">
                 <input type="text" placeholder="Mascota (raza/tamaño)" class="f-masc">
                 <button class="btn-whatsapp-final" onclick="enviarConsulta('Mar del Plata', this)">
+                    <i class="fab fa-whatsapp"></i> PEDIR COTIZACIÓN
+                </button>
+                <button class="btn-cerrar" onclick="cerrarForm(this)">Volver</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1590012314607-cda9d9b6a2a1?w=500">
+            <h3>PINAMAR</h3>
+            <button class="btn-consultar-principal" onclick="abrirForm(this)">Consultar</button>
+            <div class="form-box">
+                <input type="text" placeholder="Tu nombre" class="f-nom">
+                <label>Fecha de viaje:</label>
+                <input type="date" class="f-fec">
+                <input type="number" placeholder="Pasajeros" class="f-pas">
+                <input type="text" placeholder="Equipaje (valijas)" class="f-equi">
+                <input type="text" placeholder="Mascota (raza/tamaño)" class="f-masc">
+                <button class="btn-whatsapp-final" onclick="enviarConsulta('Pinamar', this)">
                     <i class="fab fa-whatsapp"></i> PEDIR COTIZACIÓN
                 </button>
                 <button class="btn-cerrar" onclick="cerrarForm(this)">Volver</button>
